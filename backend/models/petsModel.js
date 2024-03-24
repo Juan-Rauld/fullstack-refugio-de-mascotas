@@ -1,4 +1,6 @@
 import { Schema, model } from 'mongoose';
+import uniqueValidator from 'mongoose-unique-validator';
+
 
 const petSchema = new Schema({
     petName: {
@@ -26,6 +28,9 @@ const petSchema = new Schema({
         }
     }
 });
+
+petSchema.plugin(uniqueValidator, { message: 'Error, el nombre de la mascota {VALUE} ya existe.' });
+
 
 const PetsModel = model('PetsModel', petSchema);
 

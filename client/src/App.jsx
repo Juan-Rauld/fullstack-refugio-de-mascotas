@@ -8,8 +8,6 @@ import Edit from './pages/Edit/Edit'
 import Detail from './pages/Detail/Detail'
 import NotFound from './pages/NotFound/NotFound'
 import HeaderComp from './components/headerComponents/HeaderComp'
-
-
 import './App.css'
 
 function App() {

@@ -38,7 +38,7 @@ const Create = () => {
                 alert('Mascota creada con éxito! 🎉')
                 navigate('/');
             } catch (error) {
-                console.error('¡Ups! Algo salió mal: ' + error);
+                console.error('¡Ups! Algo salió mal ' + error);
             }
         } else {
             alert('Por favor, llena todos los campos obligatorios.');
@@ -49,7 +49,7 @@ const Create = () => {
 
     return (
         <div className=''>
-            <h2 className='mb-5'>¿Comoces una mascota que necesita un nuevo hogar?</h2>
+            <h2 className='mb-5'>¿Conoces a una mascota que necesita un nuevo hogar?</h2>
             <form className='gap-6'>
                 <div className=' flex w-full gap-4'>
                     <div className='w-full'>

@@ -42,26 +42,30 @@ const Edit = () => {
     }, [])
 
     const editarMascota = async () => {
-        console.log(params.id + 'este es el id de la mascota a Editar.')
-        const response = await axios.put(`http://localhost:8080/pets/${params.id}`, {
-            //nota https://masteringjs.io/tutorials/axios/put
-            petName: petName,
-            petType: petType,
-            petDescription: petDescription,
-            skills: {
-                skillOne: skillOne,
-                skillTwo: skillTwo,
-                skillThree: skillThree
-            }
-            
-        })
-        alert('Mascota editada con éxito! 🎉')
-        navigate('/')
+        if (petName.length > 2 && petType.length > 2 && petDescription.length > 2) {
+
+            console.log(params.id + 'este es el id de la mascota a Editar.')
+            const response = await axios.put(`http://localhost:8080/pets/${params.id}`, {
+                //nota https://masteringjs.io/tutorials/axios/put
+                petName: petName,
+                petType: petType,
+                petDescription: petDescription,
+                skills: {
+                    skillOne: skillOne,
+                    skillTwo: skillTwo,
+                    skillThree: skillThree
+                }
+            })
+            alert('Mascota editada con éxito! 🎉')
+            navigate('/')
+        } else {
+            alert('Son mínimo 3 caractéres')
+        }
     }
 
     return (
         <div className=''>
-            <h2 className='mb-5'>Editar a <span className='underline'>{mascota.petName}</span></h2>
+            <h2 className='mb-5'>Edita a <span className='underline'>{mascota.petName}</span></h2>
             <form className='gap-6'>
                 <div className=' flex w-full gap-4'>
                     <div className='w-full'>
@@ -74,6 +78,8 @@ const Edit = () => {
                                 value={petName}
                                 onChange={(e) => setPetName(e.target.value)}
                             />
+                            {petName.length < 3 ? <p className='text-orange-700'>* campo obligatorio (min: 3)</p> : <br />}
+
                         </div>
                         <div className='flex flex-col'>
                             <label htmlFor='petType' >Tipo:</label>
@@ -84,6 +90,8 @@ const Edit = () => {
                                 value={petType}
                                 onChange={(e) => setPetType(e.target.value)}
                             />
+                            {petType.length < 3 ? <p className='text-orange-700'>* campo obligatorio (min: 3)</p> : <br />}
+
                         </div>
                         <div className='flex flex-col'>
                             <label htmlFor='petDescription' >Descripción:</label>
@@ -94,6 +102,8 @@ const Edit = () => {
                                 id='petDescription'
                                 onChange={(e) => setPetDescription(e.target.value)}
                             />
+                            {petDescription.length < 3 ? <p className='text-orange-700'>* campo obligatorio (min: 3)</p> : <br />}
+
                         </div>
                     </div>
                     <div className='flex flex-col gap-2 w-full'>

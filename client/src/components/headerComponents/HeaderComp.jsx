@@ -14,7 +14,7 @@ const HeaderComp = () => {
     useEffect(() => {
         const path = location.pathname;
         if (path === '/' || path === '/Home') {
-            setMessage('Agregar una mascota al refugio');
+            setMessage(' 🏠 Agregar una mascota');
         } else {
             setMessage('Volver al inicio');
         }
@@ -31,7 +31,7 @@ const HeaderComp = () => {
     return (
         <>
             <div className='flex justify-between pb-8'>
-                <h1 className='text-2xl'>Pet Shelter</h1>
+                <h1 className='text-2xl'><a href="/">Pet Shelter</a></h1>
                 <button className='btn' onClick={handleButtonClick}>
                     {message}
                 </button>
