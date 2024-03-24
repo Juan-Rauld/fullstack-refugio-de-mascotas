@@ -65,7 +65,7 @@ const Edit = () => {
 
     return (
         <div className=''>
-            <h2 className='mb-5'>Edita a <span className='underline'>{mascota.petName}</span></h2>
+            <h2 className='mb-5'> Edita a <span className='underline'>{mascota.petName}</span></h2>
             <form className='gap-6'>
                 <div className=' flex w-full gap-4'>
                     <div className='w-full'>

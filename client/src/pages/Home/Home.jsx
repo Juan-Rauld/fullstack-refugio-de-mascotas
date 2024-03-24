@@ -56,8 +56,8 @@ const Home = () => {
                                             <td className=' '>{pet.petName}</td>
                                             <td>{pet.petType}</td>
                                             <td className='flex justify-around'>
-                                                <button onClick={() => navigate(`/pets/detail/${pet._id}`)}>ver más</button>
-                                                <button onClick={() => navigate(`/pets/edit/${pet._id}`)}>edit</button>
+                                                <button onClick={() => navigate(`/pets/detail/${pet._id}`)}>Ver más</button>
+                                                <button onClick={() => navigate(`/pets/edit/${pet._id}`)}>Editar</button>
                                             </td>
 
                                         </tr>
