@@ -3,7 +3,8 @@ import { Schema, model } from 'mongoose';
 const petSchema = new Schema({
     petName: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     petType: {
         type: String,
