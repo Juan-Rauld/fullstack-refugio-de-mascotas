@@ -27,7 +27,7 @@ const PetDetail = () => {
             // Almacenar los datos de la mascota en el estado
             setMascota(response.data)
         } catch (error) {
-            console.error('cresta! no funcionó' + error)
+            console.error('cresta! no funcionó, un 404!' + error)
         }
     }
 
@@ -36,11 +36,24 @@ const PetDetail = () => {
         getMascota()
     }, [])
 
+    // función para adoptar a la mascota
+    const adoptarMascota = async () => {
+        console.log(params.id + 'este es el id de la mascota a ELIMINAR!')
+        const response = await axios.delete(`http://localhost:8080/pets/delete/${params.id}`)
+        alert(mascota.petName + ' adoptada con éxito! 🎉')
+        navigate('/')
+
+    }
 
 
     return (
         <div>
-            <h2>Información sobre: {mascota.petName}</h2>
+            <div className='flex w-full justify-between align-middle mb-5'>
+                <h2>Información sobre: {mascota.petName}</h2>
+                <button onClick={adoptarMascota} className='bg-red-500 hover:bg-red-600'>
+                    Adopta a <span className='underline bold'>{mascota.petName}</span>
+                </button>
+            </div>
             <table className='table-fixed w-full'>
                 <tbody>
                     <tr>
