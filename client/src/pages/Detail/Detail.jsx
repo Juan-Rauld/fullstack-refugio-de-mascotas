@@ -68,14 +68,14 @@ const PetDetail = () => {
                     <tr>
                         <th>Habilidades</th>
                         <td>
-                            {mascota.skills ? (
+                        {mascota.skills && (mascota.skills.skillOne || mascota.skills.skillTwo || mascota.skills.skillThree) ? (
                                 <ul>
                                     <li>{mascota.skills.skillOne}</li>
                                     <li>{mascota.skills.skillTwo}</li>
                                     <li>{mascota.skills.skillThree}</li>
                                 </ul>
                             ) : (
-                                <li>No registradas</li>
+                                <p>No registradas</p>
                             )}
                         </td>
                     </tr>
