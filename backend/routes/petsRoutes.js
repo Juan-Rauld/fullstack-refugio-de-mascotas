@@ -3,7 +3,7 @@ import express from 'express';
 
 const router = express.Router();
 
-router.get('/pets', petsController.getAllPets); // Cambiado de getPets a getAllPets
+router.get('/pets', petsController.getAllPets);
 router.get('/pets/:id', petsController.getPetById);
 router.put('/pets/:id', petsController.updatePetById);
 router.post('/pets/create', petsController.createPet);
