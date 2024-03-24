@@ -4,11 +4,11 @@
 con la lista de los perritos que buscan hogar.
 Es decir todos los que ya están en la base de datos. */
 
+import React from 'react'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-
-import React from 'react'
+import './Home.css'
 
 const Home = () => {
 
@@ -37,27 +37,39 @@ const Home = () => {
     const todosFueronAdoptados = 'Afortunadamente todos han sido adoptados!'
 
     return (
-        <div>
-            <div>Aquí va el header</div>
+        <div className='w-full'>
             <div>
                 <div>
                     <div>
-                        {mascota.length > 0 ? (
-                            mascota.map((pet, index) => (
-                                <div key={index}>
-                                    <h2>{pet.petName}</h2>
-                                    <p>{pet.petDescription}</p>
-                                    {/* Renderiza cualquier otra propiedad que necesites */}
-                                </div>
-                            ))
-                        ) : (
-                            <p>{todosFueronAdoptados}</p>
-                        )}
+                        <table className='table-fixed w-full '>
+                            <thead className=''>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Tipo</th>
+                                    <th>Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {mascota.length > 0 ? (
+                                    mascota.map((pet, index) => (
+                                        <tr key={index}>
+                                            <td className=' '>{pet.petName}</td>
+                                            <td>{pet.petType}</td>
+                                            <td className='flex justify-around'>
+                                                <button onClick={() => navigate(`/pets/detail/${pet._id}`)}>details</button>
+                                                <button onClick={() => navigate(`/pets/edit/${pet._id}`)}>edit</button>
+                                            </td>
+
+                                        </tr>
+                                    ))
+                                ) : (
+                                    <p>{todosFueronAdoptados}</p>
+                                )}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-
-
         </div>
     )
 }

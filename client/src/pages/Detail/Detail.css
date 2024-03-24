@@ -1,0 +1,18 @@
+:root {
+    --p-table: 0.5rem 0.4rem;
+    --border-table: solid white 1px;
+}
+
+table > * {
+border: var(--border-table);
+}
+
+thead > tr > th {
+    padding: var(--p-table);
+    border: var(--border-table);
+}
+
+tbody > tr > td {
+    padding: var(--p-table);
+    border: var(--border-table);
+}
