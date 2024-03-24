@@ -7,6 +7,6 @@ router.get('/pets', petsController.getAllPets);
 router.get('/pets/:id', petsController.getPetById);
 router.put('/pets/:id', petsController.updatePetById);
 router.post('/pets/create', petsController.createPet);
-router.delete('/pets/:id', petsController.deletePetById);
+router.delete('/pets/delete/:id', petsController.deletePetById);
 
 export default router;

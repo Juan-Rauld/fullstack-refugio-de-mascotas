@@ -3,8 +3,8 @@ import PetsModel from '../models/petsModel.js';
 // crear una mascota
 const createPet = async (req, res) => {
     try {
-        const { petName, typeName, petDescription, skills } = req.body;
-        const newPet = new PetsModel({ petName, typeName, petDescription, skills });
+        const { petName, petType, petDescription, skills } = req.body;
+        const newPet = new PetsModel({ petName, petType, petDescription, skills });
         await newPet.save();
         res.status(201).json(newPet);
     } catch (error) {
@@ -40,14 +40,14 @@ const getPetById = async (req, res) => {
 const updatePetById = async (req, res) => {
     try {
         const { id } = req.params;
-        const { petName, typeName, petDescription, skills } = req.body;
+        const { petName, petType, petDescription, skills } = req.body;
         const updatedPet = await PetsModel.findByIdAndUpdate(
             id,
-            { petName, typeName, petDescription, skills },
+            { petName, petType, petDescription, skills },
             { new: true }
         );
         if (!updatedPet) {
-            return res.status(404).json({ message: 'Pet not found' });
+            return res.status(404).json({ message: 'Mascota no encontrada' });
         }
         res.status(200).json(updatedPet);
     } catch (error) {
@@ -61,9 +61,9 @@ const deletePetById = async (req, res) => {
         const { id } = req.params;
         const deletedPet = await PetsModel.findByIdAndDelete(id);
         if (!deletedPet) {
-            return res.status(404).json({ message: 'Pet not found' });
+            return res.status(404).json({ message: 'Mascota no encontrado' });
         }
-        res.status(200).json({ message: 'Pet deleted successfully' });
+        res.status(200).json({ message: deletedPet.petName + ' está muy feliz!'});
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

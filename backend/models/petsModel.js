@@ -5,7 +5,7 @@ const petSchema = new Schema({
         type: String,
         required: true
     },
-    typeName: {
+    petType: {
         type: String,
         required: true
     },
